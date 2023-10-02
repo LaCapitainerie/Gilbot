@@ -1,0 +1,82 @@
+@media (orientation: portrait) {
+
+    #main-section {
+        height: 91%!important;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column-reverse;
+        overflow-y: hidden;
+        justify-content: space-between;
+    }
+
+    .sidebar {
+        width: 100%!important;
+        height: 9%!important;
+    }
+
+    .sidebar ~ section:not(.sidebar) {
+        left: 0!important;
+        width: 100%!important;
+    }
+
+    .profile-content ~ * {
+        display: none;
+    }
+
+    .sidebar #pn, .sidebar #discordname > a {
+        opacity: 0;
+    }
+    
+    .sidebar .profile-details > *:not(.profile-content)  {
+        width: 0;
+        min-width: 0;
+        opacity: 0;
+    }
+
+    .sidebar .profile-details{
+        background: none;
+    }
+    .sidebar .profile-details{
+        width: 78px;
+    }
+
+    .sidebar .profile-details img{
+        padding: 10px;
+    }
+
+
+
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .entete-text {
+        padding: 5%;
+    }
+
+    .sidebar .nav-links li:hover, .sidebar .profile-details {
+        background: none;
+    }
+
+    /* Hide */
+
+
+
+    .sidebar .logo-details, span.link_name, .sidebar .nav-links i.arrow, .entete > div > i  {
+        display: none;
+    }
+
+    .sidebar, .sidebar .profile-details {
+        position: relative;
+    }
+
+    .sidebar .nav-links, .sidebar .profile-details {
+        padding: 0;
+    }
+
+}

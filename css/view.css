@@ -1,0 +1,82 @@
+#upper {
+    height: 40%;
+    background-color: var(--upper);
+    padding-left: 10%;
+}
+
+#lower {
+    height: 60%;
+    background-color: #344D59;
+    padding: 3% 7%;
+}
+
+#view-grid {
+    border-radius: 16px;
+    width: 100%;
+    height: 100%;
+    background-color: #36606b;
+    box-shadow: #7299a3 -1px 1px 5px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 1%;
+}
+
+#view-grid > div {
+    height: 96px;
+    background-color: #B8CBD0;
+    border-radius: 8px;
+    
+    padding: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2%;
+
+}
+
+#others {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.view-horizontal-box {
+    gap: 3%;display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+.view-horizontal-box > .img-pl {
+    display: flex;
+    overflow-x: hidden;
+    height: 256px;
+    width: 256px;
+    justify-content: center;
+    border-radius: 16px;
+}
+
+.img-pl > img, .img-pl {
+    height: 100%;
+    border-radius: 4px;
+}
+
+.view-vertical-box {
+    display: flex;
+    width: calc(100% - 256px);
+    height: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+#view-grid > div > div {
+    overflow-y: hidden;
+    display: flex;
+    justify-content: center;
+}

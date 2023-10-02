@@ -1,0 +1,163 @@
+/*
+    Decalage de la section principale lors de l'ouverture de la sidebar
+*/
+
+
+
+.entete > div {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #E4E9F7;
+}
+
+.sidebar.close ~ *:not(.sidebar) {
+    left: 78px;
+    width: calc(100% - 78px);
+}
+
+body > section:not(.sidebar) {
+    position: relative;
+    display: flex;
+    transition: all 0.5s ease;
+    left: 260px;
+    width: calc(100% - 260px);
+    flex-direction: column;
+}
+
+
+section:not(.entete) {
+    height: 100%;
+}
+
+.entete-text {
+    font-size: 26px;
+    font-weight: 600;
+    color: #11101d;
+    font-family: 'Outfit', sans-serif;
+}
+
+.entete > div > i {
+    margin: 0 15px;
+    cursor: pointer;
+    color: #11101d;
+    font-size: 35px;
+}
+
+/*
+    -------------------------------------------------------------------------
+
+    Affichage des sous menus de la sidebar
+
+*/
+
+.sidebar.close > .nav-links > .showMenu > ul {
+    height: 0;
+    opacity: 0;
+}
+
+.showMenu > .sous-menu {
+    height: fit-content;
+    opacity: 1;
+}
+
+.sous-menu {
+    transition: all 0.3s ease;
+    height: 0;
+    opacity: 0;
+}
+
+.sous-menu > li{
+    padding: 3% 12%;
+}
+
+.sous-menu > a {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/*
+    Profile en bas de la sidebar
+*/
+
+#pn {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.sidebar #pn, .sidebar #discordname > a {
+    transition: all 0.4s ease;
+    max-width: 114px;
+}
+
+.sidebar.close #pn, .sidebar.close #discordname > a {
+    opacity: 0;
+}
+
+.sidebar.close .profile-details > *:not(.profile-content)  {
+    width: 0;
+    min-width: 0;
+    opacity: 0;
+}
+
+#sidebar > ul > li:last-child > div {
+    position: fixed;
+    bottom: 0;
+    
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.barre {
+    height: 40%!important;
+    background: #ffffff!important;
+}
+
+div.timer {
+    width: 100%;
+    height: 18px;
+}
+
+div.timer > div {
+    display: flex;
+    align-items: center;
+
+    height: 100%;
+    width: 100%;
+}
+
+.cog > a > i {
+    min-width: 64px!important;
+}
+
+.no-music {
+    z-index: -1;
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+#music-sidebar .name-job {
+    overflow-x: hidden;
+}
+
+#pn.music-name:hover {
+    animation-duration: 4s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+}
+
+@keyframes slidein {
+    from {
+      
+    }
+
+    50% {
+        transform: translateX(-100%);
+    }
+  
+    to {
+        
+    }
+  }

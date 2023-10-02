@@ -1,0 +1,55 @@
+#rightclick-menu {
+    z-index: 10;
+    position: absolute;
+    padding: 1%;
+    border-radius: 10px;
+    width: 128px;
+    background-color: #201e36;
+}
+
+#rightclick-menu > div {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+}
+
+#rightclick-menu > div > div:hover {
+    cursor: pointer;
+    background-color: #364855;
+}
+
+#rightclick-menu > div > div {
+    font-size: 16px;
+    color: #1c95ff;;
+    border-radius: 10px;
+    padding: 10%;
+}
+
+#offline {
+    opacity: 0;
+    transition: all 0.5s ease;
+    background: #e39393;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    padding: 10px 10px;
+    border-radius: 10px;
+}
+
+#offline > a {
+    font-size: 18px;
+}
+
+@keyframes enligne {
+    from {
+        background: #e39393;
+        opacity: 1;
+    }
+
+    to {
+        background: #9ae393;
+        opacity: 0;
+    }
+}
+

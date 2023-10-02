@@ -1,0 +1,9 @@
+{
+    "video": "popup(9)",
+    "sidebar": "sw()",
+    "joue": "play('?')",
+    "pause": "pause()",
+    "affiche": "console.log('?')",
+    "reprends": "resume()",
+    "met": "met('?')"
+}
