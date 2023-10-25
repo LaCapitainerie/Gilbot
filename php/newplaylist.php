@@ -16,6 +16,11 @@
       </div>
 
       <div class="user-box">
+        <input type="checkbox" id="public" name="public" required>
+        <label>Public ?</label>
+      </div>
+
+      <div class="user-box">
         <input type="text" id="img" name="img" required>
         <label>Playlist's Cover</label>
       </div>

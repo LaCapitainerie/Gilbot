@@ -18,6 +18,7 @@ function audiorecognize() {
     if ("SpeechRecognition" in window || "webkitSpeechRecognition" in window) {
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         const recognition = new SpeechRecognition();
+        recognition.lang = 'fr-FR';
     
         recognition.start();
     

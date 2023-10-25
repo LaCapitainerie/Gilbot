@@ -7,24 +7,31 @@ $stmt = $bdd->prepare($sql);
 $stmt->execute(array(":secure" => $_SESSION['secure']));
 $user = $stmt->fetch();
 
-$sql = "SELECT COUNT(id_playlist) FROM playlist JOIN users USING(id_user) WHERE playlist.nom = :id;";
+$sql = "SELECT COUNT(id_playlist) FROM playlist JOIN users USING(id_user) WHERE playlist.name = :id;";
 $stmt = $bdd->prepare($sql);
 $stmt->execute(array(":id" => $_POST['name']));
 $verif = intval($stmt->fetch()[0])==0;
 
-
 if($verif){
-
-    var_dump($_POST);
-
-    $sql = "INSERT INTO `playlist`(`id_user`, `nom`, `description`, `img`) VALUES (:id, :nom , :desc, :img);";
+    
+    $sql = "INSERT INTO `playlist`(`Name`, `Description`, `Cover`, `Duration`, `id_user`, `ispublic`) VALUES( :nom , :desc , :img , '0' , :id, :public);";
     $stmt = $bdd->prepare($sql);
-    $stmt->execute(array(":id" => $user['id_user'], ":nom" => $_POST['name'], ":desc" => $_POST['desc'], ':img' => $_POST['img']));
+    $stmt->execute(array(
+        ":nom" => $_POST['name'],
+        ":desc" => $_POST['desc'],
+        ':img' => $_POST['img'],
+        ":id" => $user['id_user'],
+        ":public" => ($_POST['public']=="on")
+    ));
 
-    $sql = "INSERT INTO `sub_sidebar`(`id_list`, `name`, `id_user`, `tlm`) VALUES (4, :nom, :id,  false);";
+    
+    $sql = "INSERT INTO `sub_sidebar`(`id_sidebar`, `name`, `redirect`, `ispublic`) VALUES (2 , :nom , '/view.php?v=', :public );";
     $stmt = $bdd->prepare($sql);
-    $stmt->execute(array(":id" => $user['id_user'], ":nom" => $_POST['name']));
-
+    $stmt->execute(array(
+        ":nom" => $_POST['name'],
+        ":public" => ($_POST['public']=="on")
+    ));
+    
     header('location: ../html/playlist.php');
     exit;
 

@@ -112,10 +112,16 @@ async function play(param) {
         console.log('fini')
     };
 
+    await playnow(result);
+
+};
+
+async function playnow(result) {
+    
     // Play the Music
     const audio = document.querySelector('audio');
     audio.src = `${music}${result}`;
-    console.log('Lecture de '+res.name);
+    console.log('Lecture de '+ `${music}${result}`);
     await audio.play();
     const duration = Math.floor(audio.duration);
     const r = {
@@ -125,7 +131,8 @@ async function play(param) {
     };
     document.getElementById("loader-progress-bar").style.width = "0%";
     start(r);
-};
+
+}
 
 function pause(){
     document.querySelector('audio').pause();

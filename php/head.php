@@ -35,6 +35,6 @@ foreach ($paths as $path => $key) {
     };
 };
 ?>
-<script>notif();audiorecognize();</script>
+<script>audiorecognize();</script>
 </head>
 

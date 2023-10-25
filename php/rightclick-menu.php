@@ -1,10 +1,19 @@
-<div id="rightclick-menu" style="top:<?php echo htmlspecialchars($_GET['y'])?>px; left: <?php echo htmlspecialchars($_GET['x'])?>px">
+<div id="rightclick-menu">
     <div id="rightclick-menu-container">
-        <div class="rightclick-menu-item">
-            <a class="rcml">Alert</a>
-        </div>
-        <div class="rightclick-menu-item">
-            <a class="rcml">Darkmode</a>
-        </div>
+        <?php
+        $bdd = include('bdd.php');
+        
+        $sql = "SELECT `Name`, `Content` FROM `rightclickmenu` WHERE cat = :cat";
+        $stmt = $bdd->prepare($sql);
+        $stmt->execute(array(":cat" => $_GET['cat']));
+        $rcmis = $stmt->fetchAll();
+
+        foreach ($rcmis as $key => $rcmi) {
+            echo '<div class="rightclick-menu-item">
+                    <a class="rcml">'.htmlspecialchars($rcmi['Name']).'</a>
+                    '.($rcmi['Content']).'
+                    </div>';
+        };
+        ?>
     </div>
 </div>

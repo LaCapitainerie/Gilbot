@@ -43,7 +43,7 @@
 
 
         foreach ($subs as $key => $sub) {
-            echo "<li><a href='".htmlspecialchars($sub['redirect'])."'>".htmlspecialchars($sub['name'])."</a></li>";
+            echo "<li><a onclick='".htmlspecialchars($sub['onclick'])."'>".htmlspecialchars($sub['name'])."</a></li>";
         };
 
 
@@ -53,7 +53,7 @@
       echo "</li>";
     };
 
-    echo "<audio volume='0.05'></audio>";
+    echo '<audio></audio><script>document.querySelector("#sidebar > ul > audio").volume = 0.2;</script>';
     
     echo "
     <li>
@@ -70,7 +70,7 @@
               <div class='job' onclick='myFunction()' onmouseout='outFunc()'>
                 <span class='tooltiptext' id='myTooltip'>Copy to clipboard</span>
                 <div id='discordname'>
-                  <a>Username#6942</a>
+                  <a>".htmlspecialchars($user['tag'])."</a>
                 </div>
               </div>
             </div>"
@@ -94,9 +94,11 @@
             <div class='timer'>
               <div  onclick='myFunction()' onmouseout='outFunc()'>
                 <span class='tooltiptext' id='myTooltip'>0:00 - 2:27</span>
-                <div id='loader-progress-bar' class='barre'>
-                  <div style='display:none' class='progress-time-current milli'></div>
-                  <div style='display:none' class='progress-time-total milli'></div>
+                <div class='progress-bar-wrapper'>
+                  <div id='loader-progress-bar'>
+                    <div style='display:none' class='progress-time-current milli'></div>
+                    <div style='display:none' class='progress-time-total milli'></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -124,18 +126,20 @@
         e.target.parentElement.parentElement.classList.toggle("showMenu");
       });
     };
-    let sidebar = document.getElementById("sidebar");
-    sidebar.addEventListener('mouseover', (e) => {
-      if(!sidebar.classList.contains('temp') && sidebar.classList.contains('close')){
-        sidebar.classList.toggle('temp');
-        sidebar.classList.toggle('close');
-      };
-    });
-    sidebar.addEventListener('mouseout', (e) => {
-      if(sidebar.classList.contains('temp') && !sidebar.classList.contains('close')){
-        sidebar.classList.toggle('temp');
-        sidebar.classList.toggle('close');
-      };
-    });
+    if(document.cookie.includes("tweaks=true")){
+      let sidebar = document.getElementById("sidebar");
+      sidebar.addEventListener('mouseover', (e) => {
+        if(!sidebar.classList.contains('temp') && sidebar.classList.contains('close')){
+          sidebar.classList.toggle('temp');
+          sidebar.classList.toggle('close');
+        };
+      });
+      sidebar.addEventListener('mouseout', (e) => {
+        if(sidebar.classList.contains('temp') && !sidebar.classList.contains('close')){
+          sidebar.classList.toggle('temp');
+          sidebar.classList.toggle('close');
+        };
+      });
+    };
   </script>
 </div>

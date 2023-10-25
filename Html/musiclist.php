@@ -12,22 +12,18 @@
           
           $bdd = include('../php/bdd.php');
 
-          $sql = "SELECT id_user FROM users WHERE secure = :secure;";
+          $sql = "SELECT * FROM musique WHERE ispublic = 1;";
           $stmt = $bdd->prepare($sql);
-          $stmt->execute(array(":secure" => $_SESSION['secure']));
-          $user = $stmt->fetch();
-
-          $sql = "SELECT * FROM playlist JOIN users on playlist.id_user = users.id_user WHERE (ispublic = 1 OR playlist.id_user = :id) ORDER BY ispublic;";
-          $stmt = $bdd->prepare($sql);
-          $stmt->execute(array(":id" => $user['id_user']));
-          $playlists = $stmt->fetchAll();
+          $stmt->execute();
+          $musiques = $stmt->fetchAll();
 
           $tmp = $_GET;
           
-          foreach ($playlists as $key => $playlist) {
-            echo "<div onclick='window.location = `./view.php?v=".htmlspecialchars(strval($playlist["id_playlist"]))."`;'>";
-            $_GET = $playlist;
-            $_GET["type"] = "playlist";
+          foreach ($musiques as $key => $musique) {
+            // `$musique['Name'] - $musique['authors'].mp3`
+            echo `<div onclick='playnow("`.htmlspecialchars($musique['Name'])." - ".htmlspecialchars($musique['authors']).`.mp3");'>`;
+            $_GET = $musique;
+            $_GET["type"] = "musique";
             include('../php/card.php');
             echo "</div>";
           };

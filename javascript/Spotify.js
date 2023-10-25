@@ -47,7 +47,7 @@ async function download(urlp) {
   const loader = document.getElementById("loader-dl");
   const button = document.getElementById("dl-music");
   if(loader){loader.classList = "loader-dl";button.toggleAttribute("disabled")};
-  const result = await fetch(`http://localhost:8081/videodl/download.php?track=${url}`);
+  const result = await fetch(`http://localhost/videodl/download.php?track=${url}`);
   if(loader){loader.classList = "";button.toggleAttribute("disabled")};
   console.log(result);
   return result.ok;

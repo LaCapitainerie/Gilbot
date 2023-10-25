@@ -174,3 +174,36 @@ input:-internal-autofill-selected {
         bottom: 100%;
     }
 }
+
+.user-box-discord {
+    position: relative;
+}
+
+.login-box .user-box-discord label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    font-size: 16px;
+    color: #9863ca;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.login-box .user-box-discord input {
+    width: 100%;
+    padding: 18px 0;
+    font-size: 16px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.login-box .user-box-discord input:focus~label, .login-box .user-box-discord input:valid~label {
+    top: -20px;
+    left: 0;
+    color: #8061b9;
+    font-size: 12px;
+}
