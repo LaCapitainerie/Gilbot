@@ -20,6 +20,20 @@ async function get(params, name) {
 
     const div = document.createElement('div');
     div.innerHTML = Data;
-    document.querySelector('#content').innerHTML = div.querySelector('#main-section > #content')?.innerHTML || document.querySelector('#content').innerHTML;
+    document.querySelector('#content').replaceWith(div.querySelector('#main-section > #content') || document.querySelector('#content'));
+
+    // Execute JS Script
+    document.querySelectorAll("#content script").forEach(element => {
+        if(element.src != ""){
+            var script = document.createElement('script');
+            script.src = element.src;
+            document.querySelector('#content').appendChild(script);
+        } else {
+            eval(element.innerHTML);
+        };
+    });
+
+
     return true;
 };
+

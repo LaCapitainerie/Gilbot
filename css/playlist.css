@@ -4,33 +4,44 @@
     z-index: 1;
     height: 100%;
     width: 100%;
+
+    > div.login-box {
+        width: 400px;
+        padding: 40px;
+        box-sizing: border-box;
+        border-radius: 50px;
+        background: #11101d;
+        box-shadow: 20px 20px 60px #0e0e19, -20px -20px 60px #141221;
+    }
+
+    > div:nth-child(1){
+        left: 180px;
+        top: 27%;
+        position: relative;
+        font-size: 40px;
+        color: #b63c3c;
+        z-index: 2;
+        font-weight: bolder;
+
+        > div {
+            cursor: pointer;
+        }
+    }
 }
 
-#newpl-overlay > div.login-box {
-    width: 400px;
-    padding: 40px;
-    box-sizing: border-box;
-    border-radius: 50px;
-    background: #11101d;
-    box-shadow: 20px 20px 60px #0e0e19, -20px -20px 60px #141221;
+.loader-dl {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #102d41;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
 }
 
-#newpl-overlay > div:nth-child(1){
-    left: 180px;
-    top: 27%;
-    position: relative;
-    font-size: 40px;
-    color: #b63c3c;
-    z-index: 2;
-    font-weight: bolder;
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
-
-#newpl-overlay > div:nth-child(1) > div {
-    cursor: pointer;
-}
-
-
-
 
 /*
     Carte des playlists
@@ -87,15 +98,14 @@
 
     position: relative;
     top: -102%;
-    
-}
 
-.pl-name > *:not(.name-pl) {
-    border-radius: 13px;
-    background-color: white;
-    color: black;
-    min-width: 26.5px;
-    cursor: pointer;
+    > *:not(.name-pl) {
+        border-radius: 13px;
+        background-color: white;
+        color: black;
+        min-width: 26.5px;
+        cursor: pointer;
+    }
 }
 
 .name-pl {
@@ -122,7 +132,7 @@
     Hover de la carte
 */
 
-.pl-card,.pl-content {
+.pl-card, .pl-content {
     transition: all 0.3s ease;
 }
 
@@ -139,8 +149,9 @@
 
     color: #fff;
 
-    opacity: 0;
     transition: all 0.3s ease;
+
+    opacity: 0;
 }
 
 .pl-content:hover .pl-list > div {

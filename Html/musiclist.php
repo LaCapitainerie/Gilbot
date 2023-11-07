@@ -38,7 +38,7 @@
 
     <?php if(isset($_GET['np'])){include('../php/newplaylist.php');}; ?>
 
-    <?php echo isset($_GET['ex'])?"<script>plwindow(1);</script>":"test"?>
+    <?php echo isset($_GET['ex'])?"<script>plwindow(1);</script>":"test - musiclist - line41"?>
   </section>
         
   

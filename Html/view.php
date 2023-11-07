@@ -37,7 +37,7 @@
         <div id="upper">
           <div class="view-horizontal-box">
             <div class="img-pl">
-            <img src="/Img/<?php echo htmlspecialchars($playlist["Cover"]) ?>">
+            <img src="../Img/<?php echo htmlspecialchars($playlist["Cover"]) ?>">
             </div>
             <div class="view-vertical-box">
               <div id="title">

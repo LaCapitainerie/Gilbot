@@ -1,0 +1,86 @@
+:root {
+    --card-size: 5px;
+    --orange: #d1972b;
+    --bleu: #136ea1;
+    --blanc: #a4aaad;
+    --noir: #141a1d;
+}
+
+
+.orange {
+    background: var(--orange);
+
+    #rectangle {
+        background: var(--orange);
+    }
+}
+
+.blue {
+    background: var(--bleu);
+
+    #rectangle {
+        background: var(--bleu);
+    }
+}
+
+.white {
+    background: var(--blanc);
+
+    #rectangle {
+        background: var(--blanc);
+    }
+}
+
+.black {
+    background: var(--noir);
+
+    #rectangle {
+        background: var(--noir);
+    }
+}
+
+#contour {
+    padding: var(--card-size);
+    width: calc(var(--card-size) * 40);
+    height: calc(var(--card-size) * 30);
+    border-radius: 16px;
+}
+
+#interrior {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    background: palegoldenrod;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-evenly;
+}
+
+#text {
+    display: flex;
+    padding: 0 32px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+
+    > a {
+        font-size: calc(var(--card-size) * 4);
+        font-family: 'Outfit', sans-serif;
+    }
+}
+
+#rectangle {
+    height: 100%;
+    margin: 0 var(--card-size) var(--card-size) var(--card-size);
+    border-radius: 0 0 8px 8px;
+}
+
+#grid-codename {
+    width: fit-content;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 5px;
+}

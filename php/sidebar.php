@@ -38,7 +38,7 @@
             ((count($subs)!=0)?("<i class='bx bxs-chevron-down arrow'></i>"):"")
           ."</div>";
 
-      if(count($subs)!=0){//$value['is_list']){
+      if(count($subs)!=0){
         echo "<ul class='sous-menu'>";
 
 
@@ -53,7 +53,7 @@
       echo "</li>";
     };
 
-    echo '<audio></audio><script>document.querySelector("#sidebar > ul > audio").volume = 0.2;</script>';
+    echo '<audio></audio><script>document.querySelector(".sidebar > ul > audio").volume = 0.2;</script>';
     
     echo "
     <li>

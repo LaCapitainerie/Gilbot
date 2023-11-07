@@ -16,7 +16,6 @@ if(!($file == "$redirect.php" || $file == "signup.php") && !isset($_SESSION['sec
 };
 
 ?>
-<!DOCTYPE html>
 <head>
 
 
@@ -35,6 +34,6 @@ foreach ($paths as $path => $key) {
     };
 };
 ?>
-<script>audiorecognize();</script>
+<script>if(document.cookie.includes("vocal=true"))audiorecognize();</script>
 </head>
 

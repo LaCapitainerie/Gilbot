@@ -1,17 +1,17 @@
-test
 <?php
-
 session_start();
+
+
 $bdd = include('bdd.php');
 
-
-if(isset($_POST["discord_id"])){
+if(isset($_POST["discord_id"]) and $_POST["discord_id"]!="" and FALSE){
     $json = json_decode(file_get_contents('https://discordlookup.mesavirep.xyz/v1/user/'.$_POST["discord_id"]), true);
     $_POST["user"] = $json["global_name"];
     $_POST["pp"] = $json["avatar"]["link"];
     $_POST["tag"] = $json["tag"];
 };
 
+var_dump($_POST);
 
 if($bdd != "error"){
     $sql = "SELECT * FROM users WHERE username=:id AND pwd=:pwd LIMIT 1;";
@@ -31,13 +31,16 @@ if($bdd != "error"){
         $sql = "INSERT INTO users(username, pwd, pp, discord_id, secure, tag) VALUES (:id, :pwd, :pp, :di, :secure, :tag)";
         $stmt = $bdd->prepare($sql);
         $stmt->execute(array(
-            ":id" => $_POST['user'],
+            ":id" => $_POST['user'] || "User",
             ":pwd" => $_POST['pwd'],
             ":pp" => $_POST['pp'],
             ":di" => (isset($_POST['discord_id'])?$_POST['discord_id']:0),
             ":secure" => $secure,
             ":tag" => (isset($_POST['tag'])?$_POST['tag']:0),
         ));
+
+        echo "test";
+
         $_SESSION['secure'] = $secure;
     } else {
         $_SESSION['secure'] = $users[0]['secure'];
@@ -50,6 +53,7 @@ if($bdd != "error"){
         
     };
 };
+
 header('location: ../Html/');
 exit;
 

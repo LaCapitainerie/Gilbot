@@ -8,7 +8,7 @@
 
 
 
-    <section id="content" style="display:flex;gap:5%;height:100%;">
+    <section id="content" style="height:100%;">
 
       <input id="search" type="text" >
       <div id="loader-dl"></div>
